@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using NccuWise;
-
 using SimpleJSON;
 
 public class MQMapperManager : MonoBehaviour {
@@ -89,18 +87,8 @@ public class MQMapperManager : MonoBehaviour {
 
 	void SaveNewMessages ()
 	{
-		List<string> newMessages = rabbitServer.GetNewMessages();
-		
-		// if server haven't started yet
-		if( newMessages == null )
-			return;
-
-		for( int i=0; i< newMessages.Count; i++ )
-		{
-			// if meet limit, dont save
-			if( messages.Count < messageBufferedLimit )
-				messages.Add( newMessages[i] );
-		}
+		List<string> newMessages = rabbitServer.GetNewMessages ();
+		messages.AddRange (newMessages);
 	}
 
 	void ResetSource ()
@@ -111,7 +99,6 @@ public class MQMapperManager : MonoBehaviour {
 		for( int i=0; i< comps.Length; i++ )
 		{
 			mappers[i] = (MQMapperItem)comps[i];
-			Debug.Log( mappers[i].name );
 		}
 		
 		// search for objs by name in source

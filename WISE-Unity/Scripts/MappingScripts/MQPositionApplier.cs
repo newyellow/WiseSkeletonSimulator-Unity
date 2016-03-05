@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using NccuWise;
 using SimpleJSON;
 
 public class MQPositionApplier : MonoBehaviour {
@@ -138,7 +137,6 @@ public class MQPositionApplier : MonoBehaviour {
 			if( messages.Count < messageBufferedLimit )
 			{
 				messages.Add( newMessages[i] );
-				Debug.Log( newMessages[i] );
 			}
 		}
 	}

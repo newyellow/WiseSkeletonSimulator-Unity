@@ -13,10 +13,14 @@ public class SkeletonAnimationSwitcher : MonoBehaviour {
 	int nowIndex = 0;
 
 	int indexAdder = 0;
-	
+
+	// use to display FPS
+	int frameRate = 0;
+	int frameCounter = 0;
+
 	// Use this for initialization
 	void Start () {
-	
+		StartCoroutine (CountFPS ());
 	}
 	
 	// Update is called once per frame
@@ -32,6 +36,9 @@ public class SkeletonAnimationSwitcher : MonoBehaviour {
 			targetAnimator.runtimeAnimatorController = animFiles [nowIndex];
 
 		targetAnimator.speed = speed;
+
+		// count fps
+		++frameCounter;
 	}
 
 	void OnGUI () {
@@ -61,7 +68,20 @@ public class SkeletonAnimationSwitcher : MonoBehaviour {
 		speed = GUILayout.HorizontalSlider (speed, 0.0f, 4.0f);
 		GUILayout.Label (speed.ToString() + "x");
 
+		GUILayout.Space(10.0f);
+		GUILayout.Label ("FPS : " + frameRate);
+
 
 		GUILayout.EndArea ();
+	}
+
+	IEnumerator CountFPS () {
+
+		while (true) {
+			frameRate = frameCounter;
+			frameCounter = 0;
+
+			yield return new WaitForSeconds (1.0f);
+		}
 	}
 }

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using NccuWise;
 
 using System.Collections.Generic;
 

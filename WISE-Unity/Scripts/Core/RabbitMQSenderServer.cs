@@ -6,7 +6,6 @@ using System.Threading;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client.MessagePatterns;
-using NccuWise;
 
 public class RabbitMQSenderServer : MonoBehaviour {
 
