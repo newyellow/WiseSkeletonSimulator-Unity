@@ -41,6 +41,13 @@ SimpleJson 和 rabbitMQ 的 libary
 製作新專案可刪
   
   
+## 常用之資料 Topic 與傳輸格式
+目前常用的資料 Topic 為：  
+__wise.mocap.pose__ - 肢體動作資料 ([JSON 範例連結](https://gist.github.com/newyellow/67df85005ba28481c05b))  
+__wise.mocap.position__ - 人體的座標資料 ([JSON 範例連結](https://gist.github.com/newyellow/10af9c266dd996a1daf1))    
+__wise.mocap.action__ - 回傳給感測器的資料，可觸發燈亮、震動等回饋([JSON 範例連結](https://gist.github.com/newyellow/4d5d0d9764f5b71eafc5))    
+   
+各節點的名稱與骨架的對應：  
+![Skeleton Node Names](https://github.com/newyellow/WiseSkeletonSimulator-Unity/blob/master/Docs/SkeletonNames.png)  
+![Skeleton Foot Detail](https://github.com/newyellow/WiseSkeletonSimulator-Unity/blob/master/Docs/SkeletonFootExplain.png)
 
-  
-  
